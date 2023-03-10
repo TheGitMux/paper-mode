@@ -4,7 +4,7 @@ LIBS = gtk+-3.0 cairo
 CFLAGS += `pkg-config --cflags $(LIBS)`
 LDFLAGS += `pkg-config --libs $(LIBS)`
 CFLAGS += -lm
-CFLAGS += -lmupdf
+CFLAGS += -ldjvulibre -lmupdf -lSDL -lm -ljpeg -lfreetype -lz -lharfbuzz -lmupdf-third -ljbig2dec -lgumbo -lopenjp2 -lxcb
 
 O_DEBUG := 0  # debug binary
 O_RELEASE := 0  # debug binary
@@ -28,7 +28,7 @@ symbols.o: symbols.h
 PaperView.o: PaperView.h PaperView.c
 
 PaperView: PaperView.c PaperView.h
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ /usr/local/lib/libmupdf.a /usr/local/lib/libmupdf-third.a
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ /usr/lib/libmupdf.a /usr/lib/libmupdf-third.a
 
 clean :
 	$(RM) paper-module.so PaperView *.o

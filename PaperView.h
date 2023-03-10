@@ -5,6 +5,7 @@
 #include <mupdf/pdf.h> /* for pdf specifics and forms */
 #include <time.h>
 
+#define PATH_MAX 256
 typedef struct Quads {
   fz_quad *quads; // allocated on demand by complete_selection()
   int count;
